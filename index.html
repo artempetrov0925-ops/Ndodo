@@ -128,7 +128,7 @@
 
     .sidebar, .content {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
     .side-card {
@@ -222,6 +222,10 @@
       background: var(--card);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
+    }
+
+    .main-card + .main-card {
+      margin-top: 2px;
     }
 
     .section-title {
@@ -339,26 +343,88 @@
       font-size: 0.88rem;
     }
 
-    .activity {
-      padding: 20px 22px;
+    .focus-section {
+      background: linear-gradient(160deg, #ffffff 0%, #fbfdff 62%, #f8fbff 100%);
+      overflow: hidden;
+      position: relative;
     }
 
-    .activity-grid {
-      margin-top: 12px;
+    .focus-section::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      top: -150px;
+      right: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(207, 222, 250, 0.5) 0%, rgba(207, 222, 250, 0) 72%);
+      pointer-events: none;
+    }
+
+    .focus-grid {
       display: grid;
-      grid-template-columns: repeat(26, minmax(8px, 1fr));
-      gap: 4px;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      position: relative;
+      z-index: 1;
     }
 
-    .cell {
-      aspect-ratio: 1;
-      border-radius: 4px;
-      background: #eef3fb;
+    .focus-card {
+      border: 1px solid #d7e2f1;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      padding: 14px;
+      box-shadow: 0 8px 22px rgba(31, 51, 85, 0.05);
+      display: grid;
+      gap: 10px;
+      align-content: start;
     }
 
-    .cell.l1 { background: #dde8fb; }
-    .cell.l2 { background: #c4d7fa; }
-    .cell.l3 { background: #9dbaf2; }
+    .focus-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .focus-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid #d7e2f5;
+      background: #f1f6ff;
+      display: grid;
+      place-items: center;
+      color: #254b8f;
+      flex-shrink: 0;
+    }
+
+    .focus-card h4 {
+      margin: 0;
+      font-size: 0.97rem;
+      letter-spacing: 0.01em;
+    }
+
+    .focus-card .text {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      min-height: 72px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      color: #315380;
+      border: 1px solid #d4e0f2;
+      background: #f6f9ff;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-weight: 500;
+    }
 
     .footer {
       margin-top: 16px;
@@ -382,6 +448,7 @@
       .sidebar { order: 2; }
       .content { order: 1; }
       .two-col { grid-template-columns: 1fr; }
+      .focus-card .text { min-height: auto; }
     }
 
     @media print {
@@ -418,9 +485,9 @@
         <div class="title">Junior IT Specialist / Manual QA Tester / Usability Tester / AI Tools Specialist</div>
       </div>
       <p class="hero-summary">
-        Начинающий IT-специалист с высокой технической базой и практическим опытом в обслуживании ПК,
-        модерации цифровых сообществ и работе с AI-инструментами. Ориентирован на старт карьеры в Manual QA,
-        Usability Testing и смежных направлениях, где важны внимательность, системный подход и стабильное качество.
+        Начинающий IT-специалист с более чем 14 годами активного опыта работы с компьютером. Высокая компьютерная
+        грамотность, работа с ПК, Windows, диагностикой и AI-инструментами. Ориентирован на старт карьеры в Manual QA,
+        Usability Testing, game testing и AI-направлении, где важны внимательность, системный подход и стабильное качество.
       </p>
       <div class="contact-row">
         <div class="contact-chip">📍 Вологда, Россия</div>
@@ -614,16 +681,60 @@
           </div>
         </section>
 
-        <section class="main-card activity">
-          <h3 class="section-title"><span>Последовательное самообучение и практика</span><span class="label">Decorative Activity</span></h3>
-          <p class="text">Концептуальная визуализация регулярной практики: работа с инструментами, интерфейсами, сценариями тестирования и AI-сервисами.</p>
-          <div class="activity-grid" aria-hidden="true">
-            <span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span>
-            <span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
-            <span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span>
-            <span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span>
-            <span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span>
-            <span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span>
+        <section class="main-card focus-section">
+          <h3 class="section-title"><span>Ключевые фокусы</span><span class="label">Focus Areas</span></h3>
+          <div class="focus-grid">
+            <article class="focus-card">
+              <div class="focus-top">
+                <div class="focus-icon" aria-hidden="true">🔎</div>
+                <h4>Manual QA</h4>
+              </div>
+              <p class="text">Ручное тестирование интерфейсов, проверка базовой функциональности, поиск ошибок, повторяемые сценарии, внимательность к деталям.</p>
+              <div class="tag-row">
+                <span class="tag">Чек-листы</span>
+                <span class="tag">Баг-репорты</span>
+                <span class="tag">Функциональность</span>
+              </div>
+            </article>
+
+            <article class="focus-card">
+              <div class="focus-top">
+                <div class="focus-icon" aria-hidden="true">🧭</div>
+                <h4>Usability Testing</h4>
+              </div>
+              <p class="text">Анализ удобства интерфейсов, оценка понятности пользовательских сценариев, поиск точек трения и проблем восприятия.</p>
+              <div class="tag-row">
+                <span class="tag">UX</span>
+                <span class="tag">Интерфейсы</span>
+                <span class="tag">Удобство</span>
+              </div>
+            </article>
+
+            <article class="focus-card">
+              <div class="focus-top">
+                <div class="focus-icon" aria-hidden="true">🤖</div>
+                <h4>AI Tools</h4>
+              </div>
+              <p class="text">Практика работы с современными AI-сервисами, написание промптов, сравнение результатов моделей, тестирование интерфейсов AI-платформ.</p>
+              <div class="tag-row">
+                <span class="tag">Prompting</span>
+                <span class="tag">AI-сервисы</span>
+                <span class="tag">Сравнение моделей</span>
+              </div>
+            </article>
+
+            <article class="focus-card">
+              <div class="focus-top">
+                <div class="focus-icon" aria-hidden="true">🎮</div>
+                <h4>Game Testing</h4>
+              </div>
+              <p class="text">Интерес к игровому UX, интерфейсам, визуальной читаемости, поведению пользователя и тестированию игровых сценариев.</p>
+              <div class="tag-row">
+                <span class="tag">Игровой UX</span>
+                <span class="tag">UI</span>
+                <span class="tag">Сценарии</span>
+              </div>
+            </article>
           </div>
         </section>
 
