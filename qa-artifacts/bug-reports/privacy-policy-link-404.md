@@ -1,4 +1,4 @@
-## Bug Report 6
+## Bug Report 8
 
 **Title:** Footer link to Privacy Policy returns 404 page
 
