@@ -1,4 +1,4 @@
-## Bug Report 1
+## Bug Report 10
 
 **Title:** Search button does not respond after entering text in the search field
 
