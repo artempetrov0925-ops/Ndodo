@@ -1,4 +1,4 @@
-## Bug Report 5
+## Bug Report 7
 
 **Title:** Password field remains visible after clicking hide icon
 
