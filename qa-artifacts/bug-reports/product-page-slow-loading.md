@@ -1,4 +1,4 @@
-## Bug Report 3
+## Bug Report 9
 
 **Title:** Product page takes too long to load on first visit
 
