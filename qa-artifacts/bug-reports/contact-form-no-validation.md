@@ -1,4 +1,4 @@
-## Bug Report 7
+## Bug Report 3
 
 **Title:** Empty contact form can be submitted without required field validation
 
