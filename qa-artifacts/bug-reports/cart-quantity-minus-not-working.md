@@ -1,4 +1,4 @@
-## Bug Report 10
+## Bug Report 2
 
 **Title:** Cart item quantity cannot be decreased using minus button
 
