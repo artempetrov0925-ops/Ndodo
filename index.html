@@ -397,37 +397,112 @@
 
     .artifact-link .focus-card {
       position: relative;
-      border-color: #cfdcf1;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      overflow: hidden;
+      isolation: isolate;
+      border-color: rgba(161, 185, 223, 0.65);
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
       box-shadow:
-        0 10px 26px rgba(31, 51, 85, 0.07),
-        0 0 0 1px rgba(95, 132, 214, 0.18),
-        0 0 0 7px rgba(120, 149, 216, 0.10);
-      transition: box-shadow 220ms ease, border-color 220ms ease, transform 220ms ease, background 220ms ease;
+        0 12px 28px rgba(31, 51, 85, 0.08),
+        0 0 0 1px rgba(95, 132, 214, 0.24),
+        0 0 0 6px rgba(128, 156, 219, 0.12);
+      transition:
+        box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 320ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+        background 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .artifact-link .focus-card::before,
+    .artifact-link .focus-card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .artifact-link .focus-card::before {
+      padding: 1px;
+      background:
+        linear-gradient(128deg,
+          rgba(120, 149, 216, 0.08),
+          rgba(108, 144, 223, 0.36) 34%,
+          rgba(255, 255, 255, 0.92) 50%,
+          rgba(109, 146, 225, 0.36) 66%,
+          rgba(120, 149, 216, 0.08));
+      background-size: 220% 220%;
+      background-position: 0% 48%;
+      animation: artifactBorderShimmer 9s linear infinite;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.78;
+      z-index: 2;
+    }
+
+    .artifact-link .focus-card::after {
+      inset: 0;
+      border: 1px solid rgba(197, 213, 240, 0.72);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(157, 184, 229, 0.08));
+      opacity: 0.55;
+      z-index: 1;
     }
 
     .artifact-link:hover .focus-card,
     .artifact-link:focus-visible .focus-card {
       transform: translateY(-2px);
-      border-color: #adc3e8;
+      border-color: rgba(144, 170, 216, 0.84);
       background: linear-gradient(180deg, #ffffff 0%, #f1f6ff 100%);
       box-shadow:
-        0 14px 30px rgba(31, 51, 85, 0.11),
-        0 0 0 1px rgba(69, 110, 196, 0.30),
-        0 0 0 10px rgba(92, 126, 198, 0.14);
+        0 16px 34px rgba(31, 51, 85, 0.12),
+        0 0 0 1px rgba(78, 119, 202, 0.34),
+        0 0 0 10px rgba(103, 137, 208, 0.16);
+    }
+
+    .artifact-link:hover .focus-card::before,
+    .artifact-link:focus-visible .focus-card::before {
+      opacity: 0.98;
+      background-position: 82% 52%;
+      animation-duration: 7s;
+    }
+
+    .artifact-link:hover .focus-card::after,
+    .artifact-link:focus-visible .focus-card::after {
+      opacity: 0.82;
+      border-color: rgba(161, 186, 228, 0.86);
     }
 
     .artifact-link:active .focus-card {
-      transform: translateY(0);
+      transform: translateY(-1px);
       box-shadow:
-        0 8px 20px rgba(31, 51, 85, 0.10),
-        0 0 0 1px rgba(69, 110, 196, 0.34),
-        0 0 0 8px rgba(92, 126, 198, 0.16);
+        0 10px 24px rgba(31, 51, 85, 0.11),
+        0 0 0 1px rgba(74, 113, 194, 0.36),
+        0 0 0 8px rgba(103, 137, 208, 0.14);
     }
 
     .artifact-link:focus-visible .focus-card {
-      outline: 2px solid rgba(41, 95, 206, 0.45);
-      outline-offset: 2px;
+      outline: 2px solid rgba(41, 95, 206, 0.42);
+      outline-offset: 3px;
+    }
+
+    @keyframes artifactBorderShimmer {
+      0% {
+        background-position: 0% 48%;
+      }
+      100% {
+        background-position: 220% 52%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .artifact-link .focus-card,
+      .artifact-link .focus-card::before,
+      .artifact-link .focus-card::after {
+        transition: none;
+        animation: none;
+      }
     }
 
     .focus-top {
